@@ -1,0 +1,10 @@
+<template>
+  <div>
+  	<SEO></SEO>
+    <Header></Header>
+    <router-view></router-view>
+    <Aside>
+    </Aside>
+    <SiteFooter></SiteFooter>
+  </div>
+</template>
