@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <router-link :to="{ path: '/categories/' + category.slug }">
-      <span> 
-        {{ category.slug }}
-      </span>
-    </router-link>
-  </div>
+  <router-link :to="{ path: '/categories/' + category.slug }">
+    <span> 
+      {{ category.slug }}
+    </span>
+  </router-link>
 </template>
 
   <script>

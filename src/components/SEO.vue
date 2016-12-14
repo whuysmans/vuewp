@@ -15,13 +15,6 @@
 			}
 		},
 
-		// head: {
-		// 	meta: function() {
-		// 		console.log(this.metaObjects)
-		// 		return this.metaObjects[0]
-		// 	}
-		// },
-
 		watch: {
 		    '$route' ( to, from ) {
 		      this.getSEO()

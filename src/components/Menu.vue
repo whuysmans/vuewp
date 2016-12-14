@@ -42,17 +42,14 @@
 			getMenu: function( name ) {
 				queries.getMenu( name ).then( (result) => {
 					this.$set( this, 'items', result.wp_query.menu )
-					console.log(this.items)
 				} )
 			},
 			fixRestUrl: function( url ) {
 				if( !url ) return ''
 				url = url.toString()
 				if( !this.isCustomPost( url ) ) {
-					console.log('yes')
 					return 'pages/' + url.split( this.backendUrl )[1]
 				} else {
-					console.log('no')
 					return url.split(this.backendUrl)[1]
 				}
 				
