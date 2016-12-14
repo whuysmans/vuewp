@@ -1,6 +1,5 @@
 <template>
   <footer class="entry-footer">
-
     <span class="byline">
       <span v-if="hasAuthor" class="author vcard" v-html="post.author.avatar">       
       </span>

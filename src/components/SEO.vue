@@ -11,8 +11,7 @@
 
 		data() {
 			return {
-				fields: [],
-				metaObjects: []
+				fields: []
 			}
 		},
 
