@@ -500,6 +500,27 @@ export default {
         resolve(result)
       } )
     } )
+  },
+
+  getTerms: function( taxonomy ) {
+    const query = `
+      query termQuery($taxonomy: String) {
+        wp_query {
+          terms(taxonomy: $taxonomy) {
+            slug,
+            term_id,
+            description
+          }
+        }
+      }
+    `
+    const vars = { "taxonomy": taxonomy }
+    return new Promise( ( resolve, reject ) => {
+      client.query( query, vars ).then( ( result ) => {
+        console.log( result )
+        resolve( result )
+      } )
+    } )
   }
 
 }

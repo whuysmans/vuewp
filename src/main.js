@@ -1,8 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-//import App from './App'
-
-
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
@@ -50,6 +47,7 @@ import Aside from './components/Aside'
 import SearchPage from './components/SearchPage'
 import SEO from './components/SEO'
 import CustomPage from './components/CustomPage'
+import CategoryWidget from './components/CategoryWidget'
 
 Vue.component('Post', Post)
 Vue.component('Posts', Posts)
@@ -72,6 +70,7 @@ Vue.component('Aside', Aside)
 Vue.component('SearchPage', SearchPage)
 Vue.component('SEO', SEO)
 Vue.component('CustomPage', CustomPage)
+Vue.component('CategoryWidget', CategoryWidget)
 
 const routes = [
   {
@@ -124,10 +123,5 @@ const app = new Vue({
   store,
 	router
 }).$mount('#app')
-
-const head = new Vue({
-  template: '<div v-transfer-dom:seo>foo</div>',
-
-})
 
 
