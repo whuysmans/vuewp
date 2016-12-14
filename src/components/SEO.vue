@@ -1,3 +1,4 @@
+<template></template>
 <script>
 
 	import queries from '../queries'

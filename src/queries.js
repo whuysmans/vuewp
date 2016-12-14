@@ -482,7 +482,6 @@ export default {
     const vars = { 'url': url }
     return new Promise(function(resolve, reject) {
       client.query(query, vars).then((result) => {
-        //console.log(result)
         resolve(result)
       })
     })
@@ -498,7 +497,6 @@ export default {
     `
     return new Promise( ( resolve, reject ) => {
       client.query( query ).then( ( result ) => {
-        console.log(result)
         resolve(result)
       } )
     } )
