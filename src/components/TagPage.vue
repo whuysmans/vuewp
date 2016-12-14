@@ -1,14 +1,10 @@
 <template>
-  <div id="content" class="site-content">
-    <div id="primary" class="content-area">
-      <main id="main" class="site-main" role="main">
-        <div class="posts">
-          <Post v-for="post in posts" :post="post"></Post>
-        </div>
-        <Pagination :totalPages="allPages"></Pagination>
-      </main>
+  <main id="main" class="site-main" role="main">
+    <div class="posts">
+      <Post v-for="post in posts" :post="post"></Post>
     </div>
-  </div>
+    <Pagination :totalPages="allPages"></Pagination>
+  </main>
 </template>
 
 <script>
