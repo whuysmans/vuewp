@@ -6,12 +6,11 @@
       <h2 class="entry-title" v-else><router-link :to="{ path: '/posts/' + post.slug }">{{ post.title }}</router-link></h2>
     </header>
       <CImage v-if="single && hasFeaturedImage" :post="post"></CImage>
-      <router-link v-if="hasFeaturedImage" :to="{ path: '/posts/' + post.slug }" rel="bookmark">
+      <router-link v-if="hasFeaturedImage && !single" :to="{ path: '/posts/' + post.slug }" rel="bookmark">
         <CImage :post="post"></CImage>
       </router-link>
     <div  class="entry-content" v-html="post.content">
     </div>
-    <SinglePagination v-if="single" :totalPosts="totalPosts"></SinglePagination>
     <Footer :post="post"></Footer>
 	</article>
 </template>
@@ -36,7 +35,8 @@ import queries from '../queries'
             date: '',
             content: '',
             featured_media: 0,
-            sticky: false
+            sticky: false,
+            attached_media: {}
           }
         }
       }

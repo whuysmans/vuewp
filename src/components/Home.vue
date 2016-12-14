@@ -4,10 +4,11 @@
     <Header></Header>
     <div id="content" class="site-content">
 	    <div id="primary" class="content-area">
-	    	<router-view></router-view>
+	    	<main id="main" class="site-main" role="main">
+	    		<router-view></router-view>	
+	    	</main>
 	    </div>
-	    <Aside>
-    	</Aside>
+	    <Aside></Aside>
     </div>
     <SiteFooter></SiteFooter>
   </div>
