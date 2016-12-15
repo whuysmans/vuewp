@@ -43,7 +43,6 @@ import queries from '../queries'
         if( this.$route.params.custom ) {
           Object.assign( options.params, { type: this.$route.params.custom } )
         }
-        console.log(options)
         queries.getCustomType( options ).then( ( result ) => {
           this.$set( this, 'allPages', Math.ceil( result.wp_query.count / options.params.per_page ) )
           this.$set( this, 'posts', result.wp_query.posts )

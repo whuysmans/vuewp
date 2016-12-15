@@ -2,6 +2,7 @@
 <script>
 
 	import queries from '../queries'
+	import constants from '../constants'
 
 	export default {
 
@@ -31,7 +32,8 @@
 				} )
 			},
 			createBackendUrl: function( url ) {
-				return this.$route.params.slug ? 'http://vuetest.dev/' + this.$route.params.slug + '/' : 'http://vuetest.dev' + '/'
+				return this.$route.params.slug ? constants.BACKEND_URL + '/' + 
+							this.$route.params.slug + '/' : constants.BACKEND_URL + '/'
 			},
 			parseResult: function( result ) {
 				return Object.assign(

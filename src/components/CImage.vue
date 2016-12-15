@@ -7,21 +7,10 @@
   <script>
     export default {
       props: ['post'],
-      created() {
-        //this.fetchImage( this.post.featured_media)
-      },
+      
       data() {
         return {
           image: {}
-        }
-      },
-      methods: {
-        fetchImage: function( id ) {
-          this.$http.get(
-            'http://vuetest.dev/wp-json/wp/v2/media/' + id
-          ).then( (response) => {
-              this.$set( this, 'image', response.data )
-          } )
         }
       }
 

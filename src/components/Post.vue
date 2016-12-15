@@ -43,7 +43,6 @@ import queries from '../queries'
         }
       },
       choosePost: function() {
-        console.log('yes')
         this.$store.commit( 'setCurrentPost', this.post )
       }
 		},
