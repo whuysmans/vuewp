@@ -1,7 +1,7 @@
 <template>
   <main id="main" class="site-main" role="main">
     <div class="posts">
-      <Post v-for="post in posts" :post="post"></Post>
+      <Post v-for="post in posts" :post="post" msg="event"></Post>
     </div>
     <Pagination :totalPages="allPages"></Pagination>
   </main>

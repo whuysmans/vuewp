@@ -21,31 +21,13 @@
 import queries from '../queries'
 
 	export default {
-    props: {
-      post: {
-        type: Object,
-        default() {
-          return {
-            ID: 0,
-            slug: '',
-            title: '',
-            author: 0,
-            categories: [],
-            tags: [],
-            date: '',
-            content: '',
-            featured_media: 0,
-            sticky: false,
-            attached_media: {}
-          }
-        }
-      }
-    },
+
+    props: ['post', 'msg'],
 
 		created() {
-      //console.log(this.$route)
-      if( !this.post.ID ) {
-        this.fetchPost( this.$route.params.slug )
+      if( this.$route.params.slug && ( this.$route.path.indexOf('post') !== -1 ) ) {
+        let postType = ( this.msg && this.msg === "event" ) ? "event" : "post"
+        this.fetchPost( this.$route.params.slug, postType )
         this.single = true
         this.$on( 'pagination', this.fetchPost )
       }
@@ -55,13 +37,15 @@ import queries from '../queries'
 		data() {
 			return {
 				single: false,
-        totalPosts: 0
+        totalPosts: 0,
+        test: this.msg
 			}
 		},
 
 		methods: {
-      fetchPost: function( slug ) {
-        queries.getPost( slug ).then( ( result ) => {
+      fetchPost: function( slug, postType = "post") {
+        queries.getPost( slug, postType ).then( ( result ) => {
+          console.log(result)
           this.$set( this, 'post', result.wp_query.posts[0] )
         })
 

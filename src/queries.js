@@ -171,11 +171,11 @@ export default {
     })
   },
 
-  getPost: function (slug) {
+  getPost: function (slug, type = "post") {
     const query = `
-      query postsQuery($slug: String) {
+      query postsQuery($slug: String, $type: String) {
         wp_query {
-          posts(name: $slug) {
+          posts(name: $slug, post_type: [$type]) {
             title,
             ID,
             content,
@@ -211,7 +211,7 @@ export default {
         }
       }
     `
-    const vars = { 'slug': slug }
+    const vars = { 'slug': slug, 'type': type }
     return new Promise(function (resolve, reject) {
       client.query(query, vars).then(result => {
         resolve(result)

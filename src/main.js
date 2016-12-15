@@ -109,6 +109,10 @@ const routes = [
       {
         path: '/:custom/:slug?',
         component: CustomPage
+      },
+      {
+        path: '*',
+        redirect: '/'
       }
     ]
   }
