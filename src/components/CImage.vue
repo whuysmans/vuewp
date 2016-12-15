@@ -1,6 +1,6 @@
 <template>
   <div class="post-thumbnail" aria-hidden="true">
-    <img :src="post.thumbnail_url" alt="">
+    <img :src="post.thumbnail_url" :alt="post.slug" class="attachment-post-thumbnail size-post-thumbnail wp-post-image">
   </div>
 </template>
 
@@ -19,10 +19,9 @@
         fetchImage: function( id ) {
           this.$http.get(
             'http://vuetest.dev/wp-json/wp/v2/media/' + id
-          ).then( (response) =>
-            this.image = response.data, 
-              (error) => console.log('')
-          )
+          ).then( (response) => {
+              this.$set( this, 'image', response.data )
+          } )
         }
       }
 

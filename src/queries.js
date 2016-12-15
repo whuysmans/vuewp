@@ -198,7 +198,15 @@ export default {
             date,
             thumbnail_url,
             slug,
-            sticky
+            sticky,
+            attached_media(type: "") {
+              image_src {
+                url,
+                width,
+                height,
+                is_intermediate
+              }
+            }
           }
         }
       }

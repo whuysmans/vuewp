@@ -16,7 +16,7 @@ import queries from '../queries'
       } } )
       this.$on( 'pagination', this.fetchPosts )
 		},
-
+    
 		data() {
 			return {
 				posts: '',

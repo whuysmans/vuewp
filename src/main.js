@@ -12,7 +12,8 @@ const store = new Vuex.Store( {
     currentPage: 1,
     currentSingle: 0,
     totalPosts: 0,
-    searchResults: []
+    searchResults: [],
+    currentPost: {}
   },
 
   mutations: {
@@ -21,7 +22,8 @@ const store = new Vuex.Store( {
     nextPost: state => state.currentSingle++,
     prevPost: state => state.currentSingle--,
     setTotal: ( state, amount ) => state.totalPosts = amount,
-    setSearchResults: ( state, result ) => state.searchResults = result
+    setSearchResults: ( state, result ) => state.searchResults = result,
+    setCurrentPost: ( state, post ) => state.currentPost = post
   }
 } )
 
@@ -48,6 +50,7 @@ import SearchPage from './components/SearchPage'
 import SEO from './components/SEO'
 import CustomPage from './components/CustomPage'
 import CategoryWidget from './components/CategoryWidget'
+import SinglePost from './components/SinglePost'
 
 Vue.component('Post', Post)
 Vue.component('Posts', Posts)
@@ -71,6 +74,7 @@ Vue.component('SearchPage', SearchPage)
 Vue.component('SEO', SEO)
 Vue.component('CustomPage', CustomPage)
 Vue.component('CategoryWidget', CategoryWidget)
+Vue.component('SinglePost', SinglePost)
 
 const routes = [
   {
@@ -84,7 +88,7 @@ const routes = [
       },
       {
         path: '/posts/:slug',
-        component: Post
+        component: SinglePost
       },
       {
         path: '/categories/:slug',
@@ -109,6 +113,10 @@ const routes = [
       {
         path: '/:custom/:slug?',
         component: CustomPage
+      },
+      {
+        path: '*',
+        redirect: '/'
       }
     ]
   }
