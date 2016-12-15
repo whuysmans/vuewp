@@ -2,13 +2,11 @@
 	<article :id="post.ID" class="post type-post format-standard">
     <header class="entry-header">
       <span v-if="post.sticky" class="sticky-post">Featured</span>
-      <h2 class="entry-title" v-if="this.single">{{ post.title }}</h2>
-      <h2 class="entry-title" v-else><router-link :to="{ path: '/posts/' + post.slug }">{{ post.title }}</router-link></h2>
+      <h2 class="entry-title"><router-link :to="{ path: '/posts/' + post.slug }" @click.native="choosePost()">{{ post.title }}</router-link></h2>
     </header>
-      <CImage v-if="single && hasFeaturedImage" :post="post"></CImage>
-      <router-link v-if="hasFeaturedImage && !single" :to="{ path: '/posts/' + post.slug }" rel="bookmark">
+    <router-link v-if="hasFeaturedImage" :to="{ path: '/posts/' + post.slug }" @click.native="choosePost()">
         <CImage :post="post"></CImage>
-      </router-link>
+    </router-link>
     <div  class="entry-content" v-html="post.content">
     </div>
     <Footer :post="post"></Footer>
@@ -22,34 +20,19 @@ import queries from '../queries'
 
 	export default {
 
-    props: ['post', 'msg'],
+    props: ['post'],
 
 		created() {
-      if( this.$route.params.slug && ( this.$route.path.indexOf('post') !== -1 ) ) {
-        let postType = ( this.msg && this.msg === "event" ) ? "event" : "post"
-        this.fetchPost( this.$route.params.slug, postType )
-        this.single = true
-        this.$on( 'pagination', this.fetchPost )
-      }
       this.toggleBodyClasses()
 		},
 
 		data() {
 			return {
-				single: false,
-        totalPosts: 0,
-        test: this.msg
+        totalPosts: 0
 			}
 		},
 
 		methods: {
-      fetchPost: function( slug, postType = "post") {
-        queries.getPost( slug, postType ).then( ( result ) => {
-          console.log(result)
-          this.$set( this, 'post', result.wp_query.posts[0] )
-        })
-
-      },
       toggleBodyClasses: function() {
         let body = document.querySelector('body')
         body.className = '';
@@ -58,6 +41,10 @@ import queries from '../queries'
         } else {
           body.classList.add( 'single', 'single-post', 'single-format-standard', 'group-blog' )
         }
+      },
+      choosePost: function() {
+        console.log('yes')
+        this.$store.commit( 'setCurrentPost', this.post )
       }
 		},
 
