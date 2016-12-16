@@ -1,7 +1,9 @@
+import constants from './constants'
+
 const Lokka = require('lokka').Lokka
 const Transport = require('lokka-transport-http').Transport
 const client = new Lokka({
-  transport: new Transport('http://vuetest.dev/graphql')
+  transport: new Transport(constants.GRAPHQL_URL)
 })
 
 export default {

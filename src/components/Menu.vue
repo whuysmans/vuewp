@@ -24,12 +24,13 @@
 
 <script>
 	import queries from '../queries'
+	import constants from '../constants'
 
 	export default {
 		created: function() {
 			this.getCustomPostTypes().then( ( result ) => {
 				this.types = result.wp_query.post_types
-				this.getMenu( 'Empty Menu' )
+				this.getMenu( constants.MENU_NAME )
 			} )	
 		},
 		data() {
