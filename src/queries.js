@@ -34,7 +34,8 @@ export default {
             date,
             thumbnail_url,
             slug,
-            sticky
+            sticky,
+            acf
           },
           count
         }
@@ -118,13 +119,15 @@ export default {
             },
             date,
             thumbnail_url,
-            slug
+            slug,
+            acf
           },
           count
         }
       }
     `
-    const vars = { 'page': options.params.page, 'per_page': options.params.per_page , 'type': [options.params.type] }
+    const vars = { 'page': options.params.page, 'per_page': options.params.per_page , 
+      'type': [options.params.type] }
     if( options.params.name ) {
       Object.assign( vars, { 'name': options.params.name } )
     }
