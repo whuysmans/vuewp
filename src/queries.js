@@ -241,7 +241,8 @@ export default {
               avatar,
               id
             },
-            date
+            date,
+            thumbnail_url
           },
           count
         }
