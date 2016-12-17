@@ -23,7 +23,8 @@ const store = new Vuex.Store( {
     prevPost: state => state.currentSingle--,
     setTotal: ( state, amount ) => state.totalPosts = amount,
     setSearchResults: ( state, result ) => state.searchResults = result,
-    setCurrentPost: ( state, post ) => state.currentPost = post
+    setCurrentPost: ( state, post ) => state.currentPost = post,
+    resetCurrentPage: state => state.currentPage = 1
   }
 } )
 
@@ -127,6 +128,9 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
+  scrollBehavior( to, from, savePosition ) {
+    return { x: 0, y: 0 }
+  },
 	routes
 })
 
