@@ -89,7 +89,6 @@ export default {
     }
     return new Promise(function (resolve, reject) {
       client.query(query, vars).then(result => {
-        console.log(result)
         resolve(result)
       })
     })
@@ -402,7 +401,6 @@ export default {
     const vars = { "taxonomy": taxonomy }
     return new Promise( ( resolve, reject ) => {
       client.query( query, vars ).then( ( result ) => {
-        console.log( result )
         resolve( result )
       } )
     } )
