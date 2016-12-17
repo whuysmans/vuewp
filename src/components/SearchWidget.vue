@@ -42,7 +42,7 @@
 					this.$set( this, 'allPages', Math.ceil( result.wp_query.count / options.params.per_page ) )
           			this.$set( this, 'posts', result.wp_query.posts )
           			this.$store.commit( 'setSearchResults', result.wp_query.posts )
-          			this.$router.push( { path: 'search' , query: { term: this.searchText } } )
+          			this.$router.push( { path: '/search' , query: { term: this.searchText } } )
           			this.searchText = ''
 				} )
 			}
