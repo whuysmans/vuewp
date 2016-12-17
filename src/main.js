@@ -51,6 +51,7 @@ import SEO from './components/SEO'
 import CustomPage from './components/CustomPage'
 import CategoryWidget from './components/CategoryWidget'
 import SinglePost from './components/SinglePost'
+import NotFound from './components/NotFound'
 
 Vue.component('Post', Post)
 Vue.component('Posts', Posts)
@@ -75,6 +76,7 @@ Vue.component('SEO', SEO)
 Vue.component('CustomPage', CustomPage)
 Vue.component('CategoryWidget', CategoryWidget)
 Vue.component('SinglePost', SinglePost)
+Vue.component('NotFound', NotFound)
 
 const routes = [
   {
@@ -116,7 +118,8 @@ const routes = [
       },
       {
         path: '*',
-        redirect: '/'
+        //redirect: '/'
+        component: NotFound
       }
     ]
   }

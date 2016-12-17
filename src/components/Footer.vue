@@ -4,7 +4,7 @@
       <span v-if="hasAuthor" class="author vcard" v-html="post.author.avatar">       
       </span>
       <span v-if="hasAuthor">
-        <router-link :to="{ path: '/author/' + post.author.id }" class="url fn n">
+        <router-link :to="{ path: '/author/' + post.author.id, query: { name: post.author.name } }" class="url fn n">
           {{ post.author.name }}
         </router-link>
       </span>

@@ -1,7 +1,7 @@
 <template>
   <main id="main" class="site-main" role="main">
     <header class="page-header">
-    	<h1 class="page-title">Author: <span class="vcard"></span></h1>
+    	<h1 class="page-title">Author: <span class="vcard">{{ this.$route.query.name }}</span></h1>
     </header>
     <Post v-for="post in posts" :post="post"></Post>
     <Pagination :totalPages="allPages"></Pagination>
