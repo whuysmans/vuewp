@@ -9,6 +9,11 @@
         <Menu></Menu>
       </div>
     </div>
+    <div class="header-image">
+      <router-link :to="{ path: '/' }">
+        <img :src="this.headerImage">
+      </router-link>
+    </div>
   </header>
 </template>
 
@@ -19,27 +24,25 @@
   export default {
 
     created() {
-      this.getPages()
+      this.getBlogInfo()
     },
 
     data() {
       return {
-        pages: [],
         name: '',
-        description: ''
+        description: '',
+        headerImage: ''
       }
     },
 
     methods: {
-      getPages() {
-        queries.getPages().then( 
-          ( response ) => this.pages = response.wp_query.posts
-        ).then( queries.getBlogInfo().then(
-            ( resp ) => { 
-              this.name = resp.wp_query.bloginfo.blogname
-              this.description = resp.wp_query.bloginfo.description
-            }
-          ) )
+      
+      getBlogInfo() {
+        queries.getBlogInfo().then( ( resp ) => {
+          this.$set( this, 'name', resp.wp_query.bloginfo.blogname )
+          this.$set( this, 'description', resp.wp_query.bloginfo.description )
+          this.$set( this, 'headerImage', resp.wp_query.header_image )
+        })
       }
     }
 

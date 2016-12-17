@@ -49,50 +49,6 @@ export default {
     })
   },
 
-  getEvent: function (options) {
-    const query = `
-      query postsQuery($page: Int, $per_page: Int, $name: String) {
-        wp_query {
-          posts(posts_per_page: $per_page, paged: $page, post_type: "event", name: $name) {
-            title,
-            ID,
-            content,
-            terms(taxonomy: "category") {
-              slug,
-              term_id,
-              taxonomy
-            },
-            tags(taxonomy: "post_tag") {
-              slug,
-              term_id,
-              taxonomy
-            },
-            author {
-              name,
-              url,
-              avatar,
-              id
-            },
-            date,
-            thumbnail_url,
-            slug
-          },
-          count
-        }
-      }
-    `
-    const vars = { 'page': options.params.page, 'per_page': options.params.per_page }
-    if( options.params.name ) {
-      Object.assign( vars, { 'name': options.params.name } )
-    }
-    return new Promise(function (resolve, reject) {
-      client.query(query, vars).then(result => {
-        console.log(result)
-        resolve(result)
-      })
-    })
-  },
-
   getCustomType: function (options) {
     const query = `
       query postsQuery($page: Int, $per_page: Int, $name: String, $type:[String]) {
@@ -134,91 +90,6 @@ export default {
     return new Promise(function (resolve, reject) {
       client.query(query, vars).then(result => {
         console.log(result)
-        resolve(result)
-      })
-    })
-  },
-
-  getPages: function () {
-    const query = `
-      query myQuery {
-        wp_query {
-          posts(post_type: "page") {
-            title,
-            ID,
-            content,
-            terms(taxonomy: "category") {
-              slug,
-              term_id,
-              taxonomy
-            },
-            tags(taxonomy: "post_tag") {
-              slug,
-              term_id,
-              taxonomy
-            },
-            author {
-              name,
-              url,
-              avatar,
-              id
-            },
-            date,
-            thumbnail_url,
-            slug
-          }
-        }
-      }
-    `
-    return new Promise(function (resolve, reject) {
-      client.query(query).then(result => resolve(result)
-      )
-    })
-  },
-
-  getPost: function (slug) {
-    const query = `
-      query postsQuery($slug: String) {
-        wp_query {
-          posts(name: $slug) {
-            title,
-            ID,
-            content,
-            terms(taxonomy: "category") {
-              slug,
-              term_id,
-              taxonomy
-            },
-            tags(taxonomy: "post_tag") {
-              slug,
-              term_id,
-              taxonomy
-            },
-            author {
-              name,
-              url,
-              avatar,
-              id
-            },
-            date,
-            thumbnail_url,
-            slug,
-            sticky,
-            attached_media(type: "") {
-              image_src {
-                url,
-                width,
-                height,
-                is_intermediate
-              }
-            }
-          }
-        }
-      }
-    `
-    const vars = { 'slug': slug }
-    return new Promise(function (resolve, reject) {
-      client.query(query, vars).then(result => {
         resolve(result)
       })
     })
@@ -460,7 +331,8 @@ export default {
             wpurl,
             blogname,
             description
-          }
+          },
+          header_image
         }
       }
     `
