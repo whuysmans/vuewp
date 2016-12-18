@@ -31,6 +31,11 @@ export default {
     }
   },
 
+  beforeRouteLeave( to, from, next ) {
+    this.$store.commit( 'resetCurrentPage' )
+    next()
+  },
+
   methods: {
 
     fetchCategoryPosts: function( options ) {

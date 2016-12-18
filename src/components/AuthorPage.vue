@@ -28,6 +28,11 @@
 			}
 		},
 
+		beforeRouteLeave( to, from, next ) {
+	      this.$store.commit( 'resetCurrentPage' )
+	      next()
+    	},
+
 		methods: {
 	      fetchPosts: function( options ) {
 	        Object.assign( options.params, { per_page: 5 , author: parseInt(this.$route.params.id) } )
