@@ -1,6 +1,6 @@
 <template>
 	<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="Primary Menu">
-		<div class="menu-empty-menu-container">
+		<div id="menu" class="menu-empty-menu-container">
 			<ul id="menu-empty-menu" class="primary-menu">
 				<li v-for="item in items" v-if="isTop(item)" 
 						:id="item.id" class="menu-item menu-item-type-post_type menu-item-object-page"
@@ -19,6 +19,12 @@
 				</li>
 			</ul>
 		</div>
+		<a href="#content" class="menu-scroll-down">
+			<svg class="icon icon-arrow-right" aria-hidden="true" role="img">
+				<use href="#icon-arrow-right" xlink:href="#icon-arrow-right"></use>
+			</svg>
+			<span class="screen-reader-text">Scroll down to content</span>
+		</a>
 	</nav>
 </template>
 
