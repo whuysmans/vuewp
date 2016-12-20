@@ -19,6 +19,12 @@
 				</li>
 			</ul>
 		</div>
+		<a href="#content" class="menu-scroll-down">
+			<svg class="icon icon-arrow-right" aria-hidden="true" role="img">
+				<use href="#icon-arrow-right" xlink:href="#icon-arrow-right"></use>
+			</svg>
+			<span class="screen-reader-text">Scroll down to content</span>
+		</a>
 	</nav>
 </template>
 
