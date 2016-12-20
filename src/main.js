@@ -52,6 +52,7 @@ import CustomPage from './components/CustomPage'
 import CategoryWidget from './components/CategoryWidget'
 import SinglePost from './components/SinglePost'
 import NotFound from './components/NotFound'
+import SvgIcons from './components/SvgIcons'
 
 Vue.component('Post', Post)
 Vue.component('Posts', Posts)
@@ -77,6 +78,7 @@ Vue.component('CustomPage', CustomPage)
 Vue.component('CategoryWidget', CategoryWidget)
 Vue.component('SinglePost', SinglePost)
 Vue.component('NotFound', NotFound)
+Vue.component('SvgIcons', SvgIcons)
 
 const routes = [
   {
@@ -125,17 +127,21 @@ const routes = [
   }
 ]
 
+const coords = () => {
+  let rect = document.querySelector('#menu').getBoundingClientRect()
+  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+  return {
+    x: rect.left + scrollLeft,
+    y: rect.top + scrollTop
+  }
+}
+
 const router = new VueRouter({
   mode: 'history',
-  // scrollBehavior (to, from, savePosition) {
-  //   if (to.hash) {
-  //     return {
-  //       selector: to.hash
-  //     }
-  //   } else {
-  //     return { x: 0, y: 0 }
-  //   }
-  // },
+  scrollBehavior (to, from, savePosition) {
+    return { x: coords().x, y: coords().y }
+  },
   routes
 })
 

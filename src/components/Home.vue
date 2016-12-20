@@ -15,5 +15,6 @@
       </div>
       <SiteFooter></SiteFooter>
     </div>
+    <SvgIcons></SvgIcons>
   </div>
 </template>

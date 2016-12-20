@@ -14,6 +14,7 @@
 </template>
 
 <script>
+  import constants from '../constants'
   export default {
 
     created: function() {
@@ -47,7 +48,6 @@
         } else {
           this.$set( this, 'next_page', this.getCurrent + 1 )
         }
-        //window.scrollTo( 0, 0 )
       },
       fetch: function( direction, page ) {
         this.$parent.$emit( 'pagination', {

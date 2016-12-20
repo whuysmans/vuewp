@@ -1,6 +1,6 @@
 <template>
 	<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="Primary Menu">
-		<div id="anchor" class="menu-empty-menu-container">
+		<div id="menu" class="menu-empty-menu-container">
 			<ul id="menu-empty-menu" class="primary-menu">
 				<li v-for="item in items" v-if="isTop(item)" 
 						:id="item.id" class="menu-item menu-item-type-post_type menu-item-object-page"
