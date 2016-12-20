@@ -1,4 +1,4 @@
-<template>  
+//<template>  
   <nav class="navigation pagination" role="navigation">
     <h2 class="screen-reader-text">Posts navigation</h2>
       <div class="nav-links">
@@ -47,7 +47,7 @@
         } else {
           this.$set( this, 'next_page', this.getCurrent + 1 )
         }
-        window.scrollTo( 0, 0 )
+        //window.scrollTo( 0, 0 )
       },
       fetch: function( direction, page ) {
         this.$parent.$emit( 'pagination', {

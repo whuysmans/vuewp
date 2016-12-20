@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 Vue.use(VueResource)
 Vue.use(Vuex)
 
-const store = new Vuex.Store( {
+const store = new Vuex.Store({
   state: {
     currentPage: 1,
     currentSingle: 0,
@@ -21,13 +21,12 @@ const store = new Vuex.Store( {
     prev: state => state.currentPage--,
     nextPost: state => state.currentSingle++,
     prevPost: state => state.currentSingle--,
-    setTotal: ( state, amount ) => state.totalPosts = amount,
-    setSearchResults: ( state, result ) => state.searchResults = result,
-    setCurrentPost: ( state, post ) => state.currentPost = post,
+    setTotal: (state, amount) => state.totalPosts = amount,
+    setSearchResults: (state, result) => state.searchResults = result,
+    setCurrentPost: (state, post) => state.currentPost = post,
     resetCurrentPage: state => state.currentPage = 1
   }
-} )
-
+})
 
 import Posts from './components/Posts'
 import Post from './components/Post'
@@ -86,7 +85,7 @@ const routes = [
     name: 'home',
     children: [
       {
-        path: '', 
+        path: '',
         component: Posts
       },
       {
@@ -95,7 +94,7 @@ const routes = [
       },
       {
         path: '/categories/:slug',
-        component: CategoryPage 
+        component: CategoryPage
       },
       {
         path: '/tags/:slug',
@@ -119,7 +118,7 @@ const routes = [
       },
       {
         path: '*',
-        //redirect: '/'
+        // redirect: '/'
         component: NotFound
       }
     ]
@@ -128,15 +127,20 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  scrollBehavior( to, from, savePosition ) {
-    return { x: 0, y: 0 }
-  },
-	routes
+  // scrollBehavior (to, from, savePosition) {
+  //   if (to.hash) {
+  //     return {
+  //       selector: to.hash
+  //     }
+  //   } else {
+  //     return { x: 0, y: 0 }
+  //   }
+  // },
+  routes
 })
 
 const app = new Vue({
   store,
-	router
+  router
 }).$mount('#app')
-
 
