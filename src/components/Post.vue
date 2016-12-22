@@ -16,7 +16,7 @@
     <router-link v-if="hasFeaturedImage" :to="{ path: '/posts/' + post.slug }" @click.native="choosePost()">
         <CImage :post="post"></CImage>
     </router-link>
-    <div  class="entry-content" v-html="post.content">
+    <div  class="entry-content" v-html="post.excerpt">
     </div>
     <Footer :post="post"></Footer>
 	</article>

@@ -15,6 +15,7 @@ export default {
             title,
             ID,
             content,
+            excerpt(always: true),
             terms(taxonomy: "category") {
               slug,
               term_id,
@@ -57,6 +58,7 @@ export default {
             title,
             ID,
             content,
+            excerpt(always: true),
             terms(taxonomy: "category") {
               slug,
               term_id,
@@ -82,10 +84,10 @@ export default {
         }
       }
     `
-    const vars = { 'page': options.params.page, 'per_page': options.params.per_page , 
+    const vars = { 'page': options.params.page, 'per_page': options.params.per_page,
       'type': [options.params.type] }
-    if( options.params.name ) {
-      Object.assign( vars, { 'name': options.params.name } )
+    if (options.params.name) {
+      Object.assign(vars, { 'name': options.params.name })
     }
     return new Promise(function (resolve, reject) {
       client.query(query, vars).then(result => {
@@ -143,6 +145,7 @@ export default {
             ID,
             content,
             slug,
+            excerpt(always: true),
             terms(taxonomy: "category") {
               slug,
               term_id,
@@ -183,6 +186,7 @@ export default {
             title,
             ID,
             content,
+            excerpt(always: true),
             terms(taxonomy: "category") {
               slug,
               term_id,
@@ -225,6 +229,7 @@ export default {
             ID,
             content,
             slug,
+            excerpt(always: true),
             terms(taxonomy: "category") {
               slug,
               term_id,
@@ -282,7 +287,7 @@ export default {
     })
   },
 
-  getSearchResults: function( options ) {
+  getSearchResults: function (options) {
     const query = `
       query postsQuery($page: Int, $per_page: Int, $search: String) {
         wp_query {
@@ -290,6 +295,7 @@ export default {
             title,
             ID,
             content,
+            excerpt(always: true),
             terms(taxonomy: "category") {
               slug,
               term_id,
@@ -314,7 +320,7 @@ export default {
         }
       }
     `
-    const vars = { 'page': options.params.page, 'per_page': options.params.per_page, 
+    const vars = { 'page': options.params.page, 'per_page': options.params.per_page,
                       'search': options.params.search }
     return new Promise(function (resolve, reject) {
       client.query(query, vars).then(result => {
@@ -323,7 +329,7 @@ export default {
     })
   },
 
-  getBlogInfo: function() {
+  getBlogInfo: function () {
     const query = `
       query infoQuery {
         wp_query {
@@ -336,14 +342,14 @@ export default {
         }
       }
     `
-    return new Promise(function( resolve, reject ) {
-      client.query(query).then( result => {
-        resolve( result )
+    return new Promise(function (resolve, reject) {
+      client.query(query).then(result => {
+        resolve(result)
       })
     })
   },
 
-  getSEO: function( url ) {
+  getSEO: function (url) {
     const query = `
       query seoQuery($url: String) {
         wp_query {
@@ -365,14 +371,14 @@ export default {
       }
     `
     const vars = { 'url': url }
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
       client.query(query, vars).then((result) => {
         resolve(result)
       })
     })
   },
 
-  getCustomPostTypes: function() {
+  getCustomPostTypes: function () {
     const query = `
       query info {
         wp_query {
@@ -380,14 +386,14 @@ export default {
         }
       }
     `
-    return new Promise( ( resolve, reject ) => {
-      client.query( query ).then( ( result ) => {
+    return new Promise((resolve, reject) => {
+      client.query(query).then((result) => {
         resolve(result)
-      } )
-    } )
+      })
+    })
   },
 
-  getTerms: function( taxonomy ) {
+  getTerms: function (taxonomy) {
     const query = `
       query termQuery($taxonomy: String) {
         wp_query {
@@ -399,12 +405,12 @@ export default {
         }
       }
     `
-    const vars = { "taxonomy": taxonomy }
-    return new Promise( ( resolve, reject ) => {
-      client.query( query, vars ).then( ( result ) => {
-        resolve( result )
-      } )
-    } )
+    const vars = { 'taxonomy': taxonomy }
+    return new Promise((resolve, reject) => {
+      client.query(query, vars).then((result) => {
+        resolve(result)
+      })
+    })
   }
 
 }
