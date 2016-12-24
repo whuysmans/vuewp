@@ -2,7 +2,7 @@
 Testrepo for Vuejs GraphQL
 
 ### More documentation will follow soon
-This project is still in an early stage. Intention is to create a decoupled front (vue) for a WordPress backend. JSON data is retrieved trough GraphQL instead of the REST API. I added the graphql endpoint here: [graphql-vuewp](https://github.com/whuysmans/vuewp-graphql). I will put a demo online and provide the link here soon.
+This project is still in an early stage. Intention is to create a decoupled front (vue) for a WordPress backend. JSON data is retrieved trough GraphQL instead of the REST API. I added the graphql endpoint here: [graphql-vuewp](https://github.com/whuysmans/vuewp-graphql). I did put a demo online: [http://prutstuin.be](http://prutstuin.be)
 
 ### Install
 + git clone vuewp
