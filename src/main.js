@@ -53,6 +53,7 @@ import CategoryWidget from './components/CategoryWidget'
 import SinglePost from './components/SinglePost'
 import NotFound from './components/NotFound'
 import SvgIcons from './components/SvgIcons'
+require('./assets/css/style.css')
 
 Vue.component('Post', Post)
 Vue.component('Posts', Posts)
