@@ -1,8 +1,5 @@
 # vuewp
-Testrepo for Vuejs GraphQL
-
-### More documentation will follow soon
-This project is still in an early stage. Intention is to create a decoupled front in VueJS for a WordPress backend. JSON data is retrieved trough GraphQL instead of the REST API. I added the graphql endpoint here: [graphql-vuewp](https://github.com/whuysmans/vuewp-graphql). I did put a demo online: [http://prutstuin.be](http://prutstuin.be)
+Wordpress Twentyseventeen theme with VueJS and GraphQL. Still in progress. You can find a demo here: [http://prutstuin.be](http://prutstuin.be).
 
 ### Install
 + git clone vuewp
@@ -20,4 +17,4 @@ A graphql js client is included (Lokka). I had to set credentials to false in Lo
 + fix cors in a more sustainable way
 + create a preview theme for WP backend
 + allow input from front
-+ provide online demo
++ add animations
