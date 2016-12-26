@@ -10,7 +10,7 @@ A graphql js client is included (Lokka). I had to set credentials to false in Lo
 
 ### Dependencies
 + wordpress backend of course
-+ graphql-vuewp plugin
++ [graphql-vuewp](https://github.com/whuysmans/vuewp-graphql) plugin
 + acf if you want it
 
 ### Todo
