@@ -1,5 +1,5 @@
 # vuewp
-Wordpress Twentyseventeen theme with VueJS and GraphQL. Still in progress. You can find a demo here: [http://prutstuin.be](http://prutstuin.be).
+Wordpress Twentyseventeen theme with Vue (VueJS) and GraphQL. Still in progress. You can find a demo here: [http://prutstuin.be](http://prutstuin.be).
 
 ### Install
 + git clone vuewp
