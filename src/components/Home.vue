@@ -16,5 +16,8 @@
       <SiteFooter></SiteFooter>
     </div>
     <SvgIcons></SvgIcons>
+    <SEOMeta></SEOMeta>
   </div>
 </template>
+
+

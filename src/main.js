@@ -13,7 +13,8 @@ const store = new Vuex.Store({
     currentSingle: 0,
     totalPosts: 0,
     searchResults: [],
-    currentPost: {}
+    currentPost: {},
+    pageId: 0
   },
 
   mutations: {
@@ -24,7 +25,8 @@ const store = new Vuex.Store({
     setTotal: (state, amount) => state.totalPosts = amount,
     setSearchResults: (state, result) => state.searchResults = result,
     setCurrentPost: (state, post) => state.currentPost = post,
-    resetCurrentPage: state => state.currentPage = 1
+    resetCurrentPage: state => state.currentPage = 1,
+    setPageId: (state, id) => state.pageId = id
   }
 })
 
@@ -53,6 +55,7 @@ import CategoryWidget from './components/CategoryWidget'
 import SinglePost from './components/SinglePost'
 import NotFound from './components/NotFound'
 import SvgIcons from './components/SvgIcons'
+import SEOMeta from './components/SEOMeta'
 require('./assets/css/style.css')
 
 Vue.component('Post', Post)
@@ -80,6 +83,7 @@ Vue.component('CategoryWidget', CategoryWidget)
 Vue.component('SinglePost', SinglePost)
 Vue.component('NotFound', NotFound)
 Vue.component('SvgIcons', SvgIcons)
+Vue.component('SEOMeta', SEOMeta)
 
 const routes = [
   {
@@ -89,35 +93,43 @@ const routes = [
     children: [
       {
         path: '',
-        component: Posts
+        component: Posts,
+        name: 'posts'
       },
       {
         path: '/posts/:slug',
-        component: SinglePost
+        component: SinglePost,
+        name: 'single'
       },
       {
         path: '/categories/:slug',
-        component: CategoryPage
+        component: CategoryPage,
+        name: 'categories'
       },
       {
         path: '/tags/:slug',
-        component: TagPage
+        component: TagPage,
+        name: 'tags'
       },
       {
         path: '/pages/:slug',
-        component: Page
+        component: Page,
+        name: 'pages'
       },
       {
         path: '/author/:id',
-        component: AuthorPage
+        component: AuthorPage,
+        name: 'author'
       },
       {
         path: '/search',
-        component: SearchPage
+        component: SearchPage,
+        name: 'search'
       },
       {
         path: '/:custom/:slug?',
-        component: CustomPage
+        component: CustomPage,
+        name: 'custom'
       },
       {
         path: '*',

@@ -21,7 +21,8 @@ export default {
   data() {
     return {
       posts: [],
-      allPages: 0
+      allPages: 0,
+      name: ''
     }
   },
 

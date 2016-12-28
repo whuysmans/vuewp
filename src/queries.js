@@ -349,28 +349,16 @@ export default {
     })
   },
 
-  getSEO: function (url) {
+  getSEO: function (args) {
     const query = `
-      query seoQuery($url: String) {
+      query seoQuery($seoType: String, $seoIdentifier: String) {
         wp_query {
-          yoast(url: $url) {
-            title
-            viewport
-            description
-            og_locale
-            og_type
-            og_description
-            og_url
-            og_site_name
-            twitter_card
-            twitter_description
-            twitter_title
-            generator
-          }
+          seo(seoType: $seoType, seoIdentifier: $seoIdentifier)
         }
       }
     `
-    const vars = { 'url': url }
+    const vars = { 'seoType': args['seoType'], 'seoIdentifier': args['seoIdentifier'] }
+    console.log(vars)
     return new Promise(function (resolve, reject) {
       client.query(query, vars).then((result) => {
         resolve(result)
