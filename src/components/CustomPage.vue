@@ -46,6 +46,10 @@ import queries from '../queries'
         queries.getCustomType( options ).then( ( result ) => {
           this.$set( this, 'allPages', Math.ceil( result.wp_query.count / options.params.per_page ) )
           this.$set( this, 'posts', result.wp_query.posts )
+          let body = document.querySelector('body')
+          body.className = '';
+          body.classList.add( 'archive', 'post-type-archive', 'has-header-image', 
+            'has-sidebar', 'colors-light', 'customize-support' )
         } )
       }
 		}
