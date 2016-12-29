@@ -1,6 +1,5 @@
 <template>
   <div>
-  	<!-- <SEO></SEO> -->
     <Header></Header>
     <div class="site-content-contain">
       <div id="content" class="site-content">
@@ -16,7 +15,7 @@
       <SiteFooter></SiteFooter>
     </div>
     <SvgIcons></SvgIcons>
-    <SEOMeta></SEOMeta>
+    <!-- <SEOMeta></SEOMeta> -->
   </div>
 </template>
 

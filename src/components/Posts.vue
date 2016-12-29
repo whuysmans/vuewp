@@ -15,6 +15,10 @@ import queries from '../queries'
         page: 1
       } } )
       this.$on( 'pagination', this.fetchPosts )
+      let body = document.querySelector('body')
+      body.className = '';
+      body.classList.add( 'home', 'blog', 'group-blog', 'hfeed', 'has-header-image', 
+        'has-sidebar', 'colors-light', 'customize-support' )
 		},
     
 		data() {

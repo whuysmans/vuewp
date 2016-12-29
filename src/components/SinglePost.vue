@@ -7,14 +7,7 @@
           		<router-link :to="{ path: '/posts/' + post.slug }">
             		<time class="entry-date published" :datetime="post.date">{{ post.date }}</time>
           		</router-link>
-          		<span class="byline">
-          			 by 
-        			<span v-if="hasAuthor" class="author vcard">       
-          				<router-link :to="{ path: '/author/' + post.author.id, query: { name: post.author.name } }" class="url fn n">
-            				{{ post.author.name }}
-          				</router-link>
-        			</span>
-      			</span>
+          		<Author v-if="hasAuthor" :author="post.author"></Author>
 	    	</div>
 	      <h1 class="entry-title">{{ post.title }}</h1>
 	    </header>
@@ -28,7 +21,21 @@
 
 <script>
 
+	import queries from '../queries'
+
 	export default {
+
+		created: function() {
+			//fallback if store is empty, iow if user is linking directly to this detail
+			if( !this.$store.state.currentPost.ID ) {
+				queries.getPostByName(this.$route.params.slug).then( ( result ) => {
+					this.$store.commit( 'setCurrentPost', result.wp_query.posts[0] )
+					let body = document.querySelector('body')
+					body.className = '';
+					body.classList.add( 'post-template-default', 'single', 'single-post', 'single-format-standard', 'group-blog', 'has-header-image', 'has-sidebar' )
+				} )
+			}
+		},
 
 		data() {
 			return {
@@ -49,7 +56,7 @@
 		    	return typeof this.post.thumbnail_url === 'string'
 		    },
 		    hasAuthor: function() {
-        		return this.post.author && this.post.author.name !== ''
+        		return this.post.author && this.post.author.slug !== ''
       		}
 		}
 

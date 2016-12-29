@@ -40,6 +40,12 @@
         queries.getPage( slug ).then(
           ( response ) => {
             this.page = response.wp_query.posts[0]
+            let body = document.querySelector('body')
+            if( body.classList.length === 0 ) {
+              body.className = '';
+              body.classList.add( 'page-template-default', 'page', 'group-blog', 'has-header-image',
+               'colors-light', 'customize-support', 'has-sidebar' )
+            }
           }
         )
       }

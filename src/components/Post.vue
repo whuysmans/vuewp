@@ -31,10 +31,6 @@ import queries from '../queries'
 
     props: ['post'],
 
-		created() {
-      this.toggleBodyClasses()
-		},
-
 		data() {
 			return {
         totalPosts: 0
@@ -42,15 +38,6 @@ import queries from '../queries'
 		},
 
 		methods: {
-      toggleBodyClasses: function() {
-        let body = document.querySelector('body')
-        body.className = '';
-        if( !this.single ) {
-          body.classList.add( 'home', 'blog', 'group-blog', 'hfeed', 'has-header-image', 'has-sidebar', 'colors-light', 'customize-support' )
-        } else {
-          body.classList.add( 'single', 'single-post', 'single-format-standard', 'group-blog' )
-        }
-      },
       choosePost: function() {
         this.$store.commit( 'setCurrentPost', this.post )
       },

@@ -13,8 +13,7 @@ const store = new Vuex.Store({
     currentSingle: 0,
     totalPosts: 0,
     searchResults: [],
-    currentPost: {},
-    pageId: 0
+    currentPost: {}
   },
 
   mutations: {
@@ -25,8 +24,7 @@ const store = new Vuex.Store({
     setTotal: (state, amount) => state.totalPosts = amount,
     setSearchResults: (state, result) => state.searchResults = result,
     setCurrentPost: (state, post) => state.currentPost = post,
-    resetCurrentPage: state => state.currentPage = 1,
-    setPageId: (state, id) => state.pageId = id
+    resetCurrentPage: state => state.currentPage = 1
   }
 })
 
@@ -56,6 +54,7 @@ import SinglePost from './components/SinglePost'
 import NotFound from './components/NotFound'
 import SvgIcons from './components/SvgIcons'
 import SEOMeta from './components/SEOMeta'
+import Author from './components/Author'
 require('./assets/css/style.css')
 
 Vue.component('Post', Post)
@@ -84,6 +83,7 @@ Vue.component('SinglePost', SinglePost)
 Vue.component('NotFound', NotFound)
 Vue.component('SvgIcons', SvgIcons)
 Vue.component('SEOMeta', SEOMeta)
+Vue.component('Author', Author)
 
 const routes = [
   {
@@ -117,7 +117,7 @@ const routes = [
         name: 'pages'
       },
       {
-        path: '/author/:id',
+        path: '/author/:slug',
         component: AuthorPage,
         name: 'author'
       },

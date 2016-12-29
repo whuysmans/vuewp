@@ -12,9 +12,19 @@
 </template>
 
 <script>
+import queries from '../queries'
+
 export default {
 	created: function() {
-		this.posts = this.$store.state.searchResults
+		if( this.$store.state.searchResults.length !== 0) {
+			this.posts = this.$store.state.searchResults
+		} else {
+			this.doSearch()
+			let body = document.querySelector('body')
+			body.className = ''
+			body.classList.add( 'search', 'search-results', 'group-blog', 'has-header-image',
+			 'has-sidebar', 'colors-light', 'customize-support' )
+		}
 	},
 	watch: {
 	    '$route' ( to, from ) {
@@ -24,6 +34,24 @@ export default {
 	data() {
 		return {
 			posts: []
+		}
+	},
+	methods: {
+		doSearch: function() {
+			let searchTerm = this.$route.query.term
+			if( searchTerm && searchTerm !== "" ) {
+				const options = { 
+					params: {
+						search: searchTerm,
+						page: 1,
+						per_page: 5
+					}
+				}
+				queries.getSearchResults( options ).then( ( result ) => {
+          			this.$set( this, 'posts', result.wp_query.posts )
+          			this.$store.commit( 'setSearchResults', result.wp_query.posts )
+				} )
+			}
 		}
 	}
 }

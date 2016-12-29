@@ -27,7 +27,8 @@ export default {
               taxonomy
             },
             author {
-              name,
+              slug,
+              display_name,
               url,
               avatar,
               id
@@ -43,6 +44,50 @@ export default {
       }
     `
     const vars = { 'page': options.params.page, 'per_page': options.params.per_page }
+    return new Promise(function (resolve, reject) {
+      client.query(query, vars).then(result => {
+        resolve(result)
+      })
+    })
+  },
+
+  getPostByName: function (name) {
+    const query = `
+      query postsQuery($name: String) {
+        wp_query {
+          posts(name: $name) {
+            title,
+            ID,
+            content,
+            excerpt(always: true),
+            terms(taxonomy: "category") {
+              slug,
+              term_id,
+              taxonomy
+            },
+            tags(taxonomy: "post_tag") {
+              slug,
+              term_id,
+              taxonomy
+            },
+            author {
+              slug,
+              display_name,
+              url,
+              avatar,
+              id
+            },
+            date,
+            thumbnail_url,
+            slug,
+            sticky,
+            acf
+          },
+          count
+        }
+      }
+    `
+    const vars = { 'name': name }
     return new Promise(function (resolve, reject) {
       client.query(query, vars).then(result => {
         resolve(result)
@@ -70,7 +115,8 @@ export default {
               taxonomy
             },
             author {
-              name,
+              slug,
+              display_name,
               url,
               avatar,
               id
@@ -115,7 +161,8 @@ export default {
               taxonomy
             },
             author {
-              name,
+              slug,
+              display_name,
               url,
               avatar,
               id
@@ -157,7 +204,8 @@ export default {
               taxonomy
             },
             author {
-              name,
+              slug,
+              display_name,
               url,
               avatar,
               id
@@ -198,7 +246,8 @@ export default {
               taxonomy
             },
             author {
-              name,
+              slug,
+              display_name,
               url,
               avatar,
               id
@@ -241,7 +290,8 @@ export default {
               taxonomy
             },
             author {
-              name,
+              slug,
+              display_name,
               url,
               avatar,
               id
@@ -307,7 +357,8 @@ export default {
               taxonomy
             },
             author {
-              name,
+              slug,
+              display_name,
               url,
               avatar,
               id
@@ -358,7 +409,6 @@ export default {
       }
     `
     const vars = { 'seoType': args['seoType'], 'seoIdentifier': args['seoIdentifier'] }
-    console.log(vars)
     return new Promise(function (resolve, reject) {
       client.query(query, vars).then((result) => {
         resolve(result)
