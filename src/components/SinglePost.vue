@@ -57,7 +57,7 @@
 		    	return typeof this.post.thumbnail_url === 'string'
 		    },
 		    hasAuthor: function() {
-        		return this.post.author && this.post.author.slug !== ''
+        		return this.post.author && this.post.author.slug && this.post.author.slug !== ''
       		}
 		}
 
