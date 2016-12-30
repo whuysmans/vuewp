@@ -90,7 +90,7 @@ const routes = [
       {
         path: '',
         component: Posts,
-        name: 'posts'
+        name: 'post'
       },
       {
         path: '/posts/:slug',
@@ -100,17 +100,17 @@ const routes = [
       {
         path: '/categories/:slug',
         component: CategoryPage,
-        name: 'categories'
+        name: 'term'
       },
       {
         path: '/tags/:slug',
         component: TagPage,
-        name: 'tags'
+        name: 'term'
       },
       {
         path: '/pages/:slug',
         component: Page,
-        name: 'pages'
+        name: 'single'
       },
       {
         path: '/author/:slug',

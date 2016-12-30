@@ -31,9 +31,24 @@
 
 		computed: {
 			parseUrl: function() {
+				let type = this.$route.name
+				let slug = ""
+				if( type === 'post' ) {
+					type = "post_type"
+					slug = "post"
+				} else if( type === 'custom' ) {
+					type = "post_type"
+					slug = this.$route.params.custom
+				} else if( type === 'author' ) {
+					type = "author"
+					slug = this.$route.params.slug
+				} else {
+					type = this.$route.name
+					slug = this.$route.params.slug
+				}
 				return {
-					'seoType': this.$route.name,
-					'seoIdentifier': this.$route.params.slug ? this.$route.params.slug : ""
+					'seoType': type,
+					'seoSlug': slug
 				}
 			}
 		}

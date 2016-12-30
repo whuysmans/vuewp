@@ -402,13 +402,13 @@ export default {
 
   getSEO: function (args) {
     const query = `
-      query seoQuery($seoType: String, $seoIdentifier: String) {
+      query seoQuery($seoType: String, $seoSlug: String) {
         wp_query {
-          seo(seoType: $seoType, seoIdentifier: $seoIdentifier)
+          seo(seoType: $seoType, seoSlug: $seoSlug)
         }
       }
     `
-    const vars = { 'seoType': args['seoType'], 'seoIdentifier': args['seoIdentifier'] }
+    const vars = { 'seoType': args['seoType'], 'seoSlug': args['seoSlug'] }
     return new Promise(function (resolve, reject) {
       client.query(query, vars).then((result) => {
         resolve(result)
