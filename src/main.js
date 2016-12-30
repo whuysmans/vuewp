@@ -39,7 +39,6 @@ import Home from './components/Home'
 import SiteFooter from './components/SiteFooter'
 import CategoryPage from './components/CategoryPage'
 import Pagination from './components/Pagination'
-import SinglePagination from './components/SinglePagination'
 import TagPage from './components/TagPage'
 import Tag from './components/Tag'
 import AuthorPage from './components/AuthorPage'
@@ -47,7 +46,6 @@ import Menu from './components/Menu'
 import SearchWidget from './components/SearchWidget'
 import Aside from './components/Aside'
 import SearchPage from './components/SearchPage'
-import SEO from './components/SEO'
 import CustomPage from './components/CustomPage'
 import CategoryWidget from './components/CategoryWidget'
 import SinglePost from './components/SinglePost'
@@ -68,7 +66,6 @@ Vue.component('Home', Home)
 Vue.component('SiteFooter', SiteFooter)
 Vue.component('CategoryPage', CategoryPage)
 Vue.component('Pagination', Pagination)
-Vue.component('SinglePagination', SinglePagination)
 Vue.component('TagPage', TagPage)
 Vue.component('Tag', Tag)
 Vue.component('AuthorPage', AuthorPage)
@@ -76,7 +73,6 @@ Vue.component('Menu', Menu)
 Vue.component('SearchWidget', SearchWidget)
 Vue.component('Aside', Aside)
 Vue.component('SearchPage', SearchPage)
-Vue.component('SEO', SEO)
 Vue.component('CustomPage', CustomPage)
 Vue.component('CategoryWidget', CategoryWidget)
 Vue.component('SinglePost', SinglePost)

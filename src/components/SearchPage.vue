@@ -19,11 +19,11 @@ export default {
 		if( this.$store.state.searchResults.length !== 0) {
 			this.posts = this.$store.state.searchResults
 		} else {
-			this.doSearch()
 			let body = document.querySelector('body')
 			body.className = ''
 			body.classList.add( 'search', 'search-results', 'group-blog', 'has-header-image',
 			 'has-sidebar', 'colors-light', 'customize-support' )
+			this.doSearch()
 		}
 	},
 	watch: {

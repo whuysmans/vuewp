@@ -14,6 +14,12 @@ import queries from '../queries'
 export default {
 
   created: function() {
+    let body = document.querySelector('body')
+    if( body.classList.length === 0 ) {
+      body.className = '';
+      body.classList.add( 'archive', 'category', 'group-blog', 'has-header-image', 
+        'has-sidebar', 'colors-light', 'customize-support' )
+    }
     this.fetchCategoryPosts( { params: { page: 1 } } )
     this.$on( 'pagination', this.fetchCategoryPosts )
   },
@@ -45,10 +51,6 @@ export default {
         {
           this.$set( this, 'allPages', Math.ceil( result.wp_query.count / options.params.per_page ) )
           this.$set( this, 'posts', result.wp_query.posts )
-          let body = document.querySelector('body')
-          body.className = '';
-          body.classList.add( 'archive', 'category', 'group-blog', 'has-header-image', 
-            'has-sidebar', 'colors-light', 'customize-support' )
         }
       )
     }

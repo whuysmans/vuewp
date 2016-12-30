@@ -28,6 +28,7 @@
 		created: function() {
 			//fallback if store is empty, iow if user is linking directly to this detail
 			if( !this.$store.state.currentPost.ID ) {
+				console.log(this.$route.params.slug)
 				queries.getPostByName(this.$route.params.slug).then( ( result ) => {
 					this.$store.commit( 'setCurrentPost', result.wp_query.posts[0] )
 					let body = document.querySelector('body')

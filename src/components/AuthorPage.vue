@@ -15,6 +15,12 @@
 	export default {
 
 		created: function() {
+		  let body = document.querySelector('body')
+		  if( body.classList.length === 0 ) {
+	        body.className = '';
+	        body.classList.add( 'page-template-default', 'page', 'group-blog', 'has-header-image',
+	         'colors-light', 'customize-support', 'has-sidebar' )
+	      }
 	      this.fetchPosts( { params: {
 	        page: 1
 	      } } )

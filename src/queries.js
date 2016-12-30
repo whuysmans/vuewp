@@ -55,7 +55,7 @@ export default {
     const query = `
       query postsQuery($name: String) {
         wp_query {
-          posts(name: $name) {
+          posts(name: $name, post_type: "any") {
             title,
             ID,
             content,

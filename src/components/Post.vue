@@ -39,6 +39,7 @@ import queries from '../queries'
 
 		methods: {
       choosePost: function() {
+        console.log( this.post.post_type )
         this.$store.commit( 'setCurrentPost', this.post )
       },
       isSticky: function() {
