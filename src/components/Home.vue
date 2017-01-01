@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header></Header>
+    <PageHeader :post="post"></PageHeader>
     <div class="site-content-contain">
       <div id="content" class="site-content">
         <div class="wrap">
@@ -18,5 +19,6 @@
     <SEOMeta></SEOMeta>
   </div>
 </template>
+
 
 

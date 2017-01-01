@@ -6,13 +6,7 @@
 
   <script>
     export default {
-      props: ['post'],
-      
-      data() {
-        return {
-          image: {}
-        }
-      }
+      props: ['post']
 
     }
 

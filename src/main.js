@@ -7,25 +7,28 @@ Vue.use(VueRouter)
 Vue.use(VueResource)
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
-  state: {
-    currentPage: 1,
-    currentSingle: 0,
-    totalPosts: 0,
-    searchResults: [],
-    currentPost: {}
-  },
+const state = {
+  currentPage: 1,
+  currentSingle: 0,
+  totalPosts: 0,
+  searchResults: [],
+  currentPost: {}
+}
 
-  mutations: {
-    next: state => state.currentPage++,
-    prev: state => state.currentPage--,
-    nextPost: state => state.currentSingle++,
-    prevPost: state => state.currentSingle--,
-    setTotal: (state, amount) => state.totalPosts = amount,
-    setSearchResults: (state, result) => state.searchResults = result,
-    setCurrentPost: (state, post) => state.currentPost = post,
-    resetCurrentPage: state => state.currentPage = 1
-  }
+const mutations = {
+  next: state => state.currentPage++,
+  prev: state => state.currentPage--,
+  nextPost: state => state.currentSingle++,
+  prevPost: state => state.currentSingle--,
+  setTotal: (state, amount) => state.totalPosts = amount,
+  setSearchResults: (state, result) => state.searchResults = result,
+  setCurrentPost: (state, post) => state.currentPost = post,
+  resetCurrentPage: state => state.currentPage = 1
+}
+
+const store = new Vuex.Store({
+  state,
+  mutations
 })
 
 import Posts from './components/Posts'
@@ -53,6 +56,7 @@ import NotFound from './components/NotFound'
 import SvgIcons from './components/SvgIcons'
 import SEOMeta from './components/SEOMeta'
 import Author from './components/Author'
+import PageHeader from './components/PageHeader'
 require('./assets/css/style.css')
 
 Vue.component('Post', Post)
@@ -80,6 +84,7 @@ Vue.component('NotFound', NotFound)
 Vue.component('SvgIcons', SvgIcons)
 Vue.component('SEOMeta', SEOMeta)
 Vue.component('Author', Author)
+Vue.component('PageHeader', PageHeader)
 
 const routes = [
   {
@@ -153,6 +158,8 @@ const router = new VueRouter({
   },
   routes
 })
+
+export const bus = new Vue()
 
 const app = new Vue({
   store,
