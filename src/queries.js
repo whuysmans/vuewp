@@ -389,7 +389,12 @@ export default {
             blogname,
             description
           },
-          header_image
+          header_image,
+          header_video {
+            url,
+            width,
+            height
+          }
         }
       }
     `

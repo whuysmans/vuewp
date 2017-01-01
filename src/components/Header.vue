@@ -4,7 +4,9 @@
       <div class="custom-header-media">
         <div class="wp-custom-header">
           <router-link :to="{ path: '/' }">
-            <img :src="this.headerImage">
+            <video v-if="hasHeaderVideo" autoplay loop :src="this.headerVideo.url" 
+                  :width="this.headerVideo.width" :height="this.headerVideo.height"></video>
+            <img v-else :src="this.headerImage">
           </router-link>
         </div>
       </div>
@@ -41,7 +43,8 @@
       return {
         name: '',
         description: '',
-        headerImage: ''
+        headerImage: '',
+        headerVideo: {}
       }
     },
 
@@ -52,7 +55,15 @@
           this.$set( this, 'name', resp.wp_query.bloginfo.blogname )
           this.$set( this, 'description', resp.wp_query.bloginfo.description )
           this.$set( this, 'headerImage', resp.wp_query.header_image )
+          this.$set( this, 'headerVideo', resp.wp_query.header_video )
         })
+      }
+    },
+
+    computed: {
+      hasHeaderVideo: function() {
+        // return this.headerVideo && this.headerVideo !== ''
+        return false
       }
     }
 
