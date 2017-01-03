@@ -62,7 +62,8 @@
 
     computed: {
       hasHeaderVideo: function() {
-        return this.headerVideo && this.headerVideo !== ''
+        // return this.headerVideo && this.headerVideo !== ''
+        return false
       }
     }
 
