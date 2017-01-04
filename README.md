@@ -16,4 +16,6 @@ A graphql js client is included (Lokka). I had to set credentials to false in Lo
 ### Todo
 + fix cors in a more sustainable way
 + add animations
-+ SEO: SSR with SEO4ajax
+
+### SEO
++ SSR with SEO4ajax
