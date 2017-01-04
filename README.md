@@ -16,4 +16,4 @@ A graphql js client is included (Lokka). I had to set credentials to false in Lo
 ### Todo
 + fix cors in a more sustainable way
 + add animations
-+ added seo meta by means of an extra Wordpress plugin, wich will be added here soon; Google manages to crawl the javascript, for Facebook however, the data arrive to late. So SSR is needed, but that is outside the scope of the project.
++ SEO: SSR with SEO4ajax
