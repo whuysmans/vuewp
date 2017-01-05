@@ -18,4 +18,4 @@ A graphql js client is included (Lokka). I had to set credentials to false in Lo
 + add animations
 
 ### SEO
-+ SSR with SEO4ajax
++ after a lot of trial and error, I decided to redirect the bots through mod_rewrite to the base WP install; a poor man's SSR; a node server on the backend was outside the scope of this demo, since my intent was to provide all backend functionality in a single WP plugin. It is probably bad, but it's working. 
