@@ -1,8 +1,14 @@
 <template>
-  <div class="page">
-    <h1 class="entry-title">{{ post.title }}</h1>
-    <div class="entry-content" v-html="post.content">
-    </div>
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article class="page type-page status-publish hentry">
+        <header class="entry-header"> 
+          <h1 class="entry-title">{{ post.title }}</h1>
+        </header>
+        <div class="entry-content" v-html="post.content">
+        </div>
+      </article>
+    </main>
     <Footer :post="post"></Footer>
   </div>
 </template>

@@ -54,7 +54,6 @@ import CategoryWidget from './components/CategoryWidget'
 import SinglePost from './components/SinglePost'
 import NotFound from './components/NotFound'
 import SvgIcons from './components/SvgIcons'
-import SEOMeta from './components/SEOMeta'
 import Author from './components/Author'
 import PageHeader from './components/PageHeader'
 require('./assets/css/style.css')
@@ -82,7 +81,6 @@ Vue.component('CategoryWidget', CategoryWidget)
 Vue.component('SinglePost', SinglePost)
 Vue.component('NotFound', NotFound)
 Vue.component('SvgIcons', SvgIcons)
-Vue.component('SEOMeta', SEOMeta)
 Vue.component('Author', Author)
 Vue.component('PageHeader', PageHeader)
 

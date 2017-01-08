@@ -1,4 +1,4 @@
-//<template>  
+<template>  
   <nav class="navigation pagination" role="navigation">
     <h2 class="screen-reader-text">Posts navigation</h2>
       <div class="nav-links">

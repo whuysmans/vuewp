@@ -1,5 +1,5 @@
 <template>
-  <header class="site-header" role="banner">
+  <header id="masthead" class="site-header" role="banner">
     <div class="custom-header">
       <div class="custom-header-media">
         <div class="wp-custom-header">

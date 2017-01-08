@@ -19,7 +19,6 @@
     <div  class="entry-content" v-html="post.excerpt">
     </div>
     <Footer :post="post"></Footer>
-</transition>
 </template>
 
 

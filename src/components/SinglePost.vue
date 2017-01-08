@@ -1,22 +1,24 @@
 <template>
-  <main id="main" class="site-main" role="main">
-	<article :id="post.ID" class="post type-post format-standard">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+	  <article :id="post.ID" class="post type-post format-standard">
 	    <header class="entry-header">
-	    	<div class="entry-meta">
-	    		<span class="screen-reader-text">Posted on</span>
-          		<router-link :to="{ path: '/posts/' + post.slug }">
-            		<time class="entry-date published" :datetime="post.date">{{ post.date }}</time>
-          		</router-link>
-          		<Author v-if="hasAuthor" :author="post.author"></Author>
-	    	</div>
+    	  <div class="entry-meta">
+    	    <span class="screen-reader-text">Posted on</span>
+      		  <router-link :to="{ path: '/posts/' + post.slug }">
+        	    <time class="entry-date published" :datetime="post.date">{{ post.date }}</time>
+      		  </router-link>
+      		<Author v-if="hasAuthor" :author="post.author"></Author>
+    	  </div>
 	      <h1 class="entry-title">{{ post.title }}</h1>
 	    </header>
 	    <CImage v-if="hasFeaturedImage" :post="post"></CImage>
 	    <div  class="entry-content" v-html="post.content">
 	    </div>
 	    <Footer :post="post"></Footer>
-	</article>
-  </main>
+	  </article>
+    </main>
+  </div>
 </template>
 
 <script>

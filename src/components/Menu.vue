@@ -7,6 +7,10 @@
 								:class="{ 'menu-item-has-children': hasChildren(item) }">
 					<router-link :to="{ path: '/' + fixRestUrl( item.url ) }">{{ item.title }}</router-link>
 					<button v-if="hasChildren(item)" class="dropdown-toggle" aria-expanded="false">
+						<svg class="icon icon-angle-down" aria-hidden="true" role="img">
+							<use href="#icon-angle-down" xlink:href="#icon-angle-down"></use>
+						</svg>
+						<span class="svg-fallback icon-angle-down"></span>
 						<span class="screen-reader-text">expand child menu</span>
 					</button>
 					<ul class="submenu" v-if="hasChildren(item)">

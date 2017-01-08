@@ -1,10 +1,17 @@
 <template>
-  <main id="main" class="site-main" role="main">
-    <div class="posts">
-      <Post v-for="post in posts" :post="post"></Post>
+  <div>
+    <header class="page-header">
+      <h1 class="page-title">Tag: {{ this.$route.params.slug }}</h1>
+    </header>
+    <div id="primary" class="content-area">
+      <main id="main" class="site-main" role="main">
+        <div class="posts">
+          <Post v-for="post in posts" :post="post"></Post>
+        </div>
+        <Pagination :totalPages="allPages"></Pagination>
+      </main>
     </div>
-    <Pagination :totalPages="allPages"></Pagination>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -14,6 +21,12 @@ import queries from '../queries'
 export default {
 
   created: function() {
+    let body = document.querySelector('body')
+    if( body.classList.length === 0 ) {
+      body.className = '';
+      body.classList.add( 'archive', 'tag', 'group-blog', 'has-header-image', 
+        'has-sidebar', 'colors-light', 'customize-support' )
+    }
     this.fetchTagPosts( { params: { page: 1 } } )
     this.$on( 'pagination', this.fetchTagPosts )
   },

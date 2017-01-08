@@ -1,10 +1,17 @@
 <template>
-  <main id="main" class="site-main" role="main">
-    <div class="posts">
-      <Post v-for="post in posts" :post="post"></Post>
+  <div>
+    <header class="page-header">
+      <h1 class="page-title">Category: {{ this.$route.params.slug }}</h1>
+    </header>
+    <div id="primary" class="content-area">
+      <main id="main" class="site-main" role="main">
+        <div class="posts">
+          <Post v-for="post in posts" :post="post"></Post>
+        </div>
+        <Pagination :totalPages="allPages"></Pagination>
+      </main>
     </div>
-    <Pagination :totalPages="allPages"></Pagination>
-  </main>
+  </div>
 </template>
 
 <script>

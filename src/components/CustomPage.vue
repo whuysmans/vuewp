@@ -1,10 +1,17 @@
 <template>
-  <main id="main" class="site-main" role="main">
-    <div class="posts">
-      <Post v-for="post in posts" :post="post" msg="event"></Post>
+  <div>
+    <header class="page-header">
+      <h1 class="page-title">Archive: {{ this.$route.params.custom }}</h1>
+    </header>
+    <div id="primary" class="content-area">
+      <main id="main" class="site-main" role="main">
+        <div class="posts">
+          <Post v-for="post in posts" :post="post" msg="event"></Post>
+        </div>
+        <Pagination :totalPages="allPages"></Pagination>
+      </main>
     </div>
-    <Pagination :totalPages="allPages"></Pagination>
-  </main>
+  </div>
 </template>
 
 <script>

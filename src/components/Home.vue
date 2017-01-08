@@ -5,20 +5,25 @@
     <div class="site-content-contain">
       <div id="content" class="site-content">
         <div class="wrap">
-    	    <div id="primary" class="content-area">
-    	    	<main id="main" class="site-main" role="main">
-    	    		<router-view></router-view>	
-    	    	</main>
-    	    </div>
+    	    <router-view></router-view>
     	    <Aside></Aside>
         </div>
       </div>
       <SiteFooter></SiteFooter>
     </div>
     <SvgIcons></SvgIcons>
-    <!-- <SEOMeta></SEOMeta>-->  
   </div>
 </template>
+
+<style>
+  .fade-transition {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter, .fade-leave {
+  opacity: 0;
+}
+</style>
 
 
 

@@ -1,8 +1,15 @@
 <template>
-  <main id="main" class="site-main" role="main">
-    <Post v-for="post in posts" :post="post"></Post>
-    <Pagination :totalPages="allPages"></Pagination>
-  </main>
+  <div>
+  <header class="page-header">
+    <h1 class="page-title">All Posts</h1>
+  </header>
+  <div id="main" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <Post v-for="post in posts" :post="post"></Post>
+      <Pagination :totalPages="allPages"></Pagination>
+    </main>
+  </div>
+  </div>
 </template>
 
 <script>

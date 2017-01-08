@@ -1,14 +1,14 @@
 <template>
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-			<header class="page-header">
-				<h1 class="page-title">Search Results for: 
-					<span>{{ this.$route.query.term }}</span>
-				</h1>
-			</header>
-			<Post v-for="post in posts" :post="post"></Post>
-		</main>
-	</section>
+  <div>
+  	<header class="page-header">
+	  <h1 class="page-title">Search Results for: 
+	    <span>{{ this.$route.query.term }}</span>
+	  </h1>
+	</header>
+	<main id="main" class="site-main" role="main">
+	  <Post v-for="post in posts" :post="post"></Post>
+	</main>
+  </div>
 </template>
 
 <script>
