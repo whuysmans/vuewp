@@ -2,10 +2,10 @@
 	<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="Primary Menu">
 		<div id="menu" class="menu-empty-menu-container">
 			<ul id="menu-empty-menu" class="primary-menu">
-				<li v-for="item in items" v-if="isTop(item)" 
+				<router-link tag="li" :to="{ path: '/' + fixRestUrl( item.url ) }" v-for="item in items" v-if="isTop(item)" 
 						:id="item.id" class="menu-item menu-item-type-post_type menu-item-object-page"
 								:class="{ 'menu-item-has-children': hasChildren(item) }">
-					<router-link :to="{ path: '/' + fixRestUrl( item.url ) }">{{ item.title }}</router-link>
+					<a >{{ item.title }}</a>
 					<button v-if="hasChildren(item)" class="dropdown-toggle" aria-expanded="false">
 						<svg class="icon icon-angle-down" aria-hidden="true" role="img">
 							<use href="#icon-angle-down" xlink:href="#icon-angle-down"></use>
@@ -20,7 +20,8 @@
 							</router-link>
 						</li>
 					</ul>
-				</li>
+				</router-link>
+				<li class="menu-line"></li>
 			</ul>
 		</div>
 		<a href="#content" class="menu-scroll-down">

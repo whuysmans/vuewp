@@ -4234,3 +4234,60 @@ object {
 		padding: 0;
 	}
 }
+
+
+
+/* Vue specifics */
+#site-navigation .menu-item {
+  position: relative;
+}
+
+#site-navigation .menu-item a:focus {
+	outline: none;
+	color: #767676;
+}
+
+#site-navigation .menu-item.router-link-active > a {
+  color: #d94f5c;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+#site-navigation .menu-item > a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1.25em;
+    right: 1.25em;
+    /*width: 100%;*/
+    height: 4px;
+    background: #d94f5c;
+    -webkit-transform: scale3d(0, 1, 1);
+    transform: scale3d(0, 1, 1);
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+}
+
+#site-navigation .menu-item.router-link-active > a::before {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
