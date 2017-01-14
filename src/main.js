@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
-import VueResource from 'vue-resource'
 
 Vue.use(VueRouter)
-Vue.use(VueResource)
 Vue.use(Vuex)
 
 const state = {
@@ -56,7 +54,9 @@ import NotFound from './components/NotFound'
 import SvgIcons from './components/SvgIcons'
 import Author from './components/Author'
 import PageHeader from './components/PageHeader'
+import VueVisual from 'vue-visual'
 require('./assets/css/style.css')
+require('vue-visual/index.css')
 
 Vue.component('Post', Post)
 Vue.component('Posts', Posts)
@@ -83,6 +83,7 @@ Vue.component('NotFound', NotFound)
 Vue.component('SvgIcons', SvgIcons)
 Vue.component('Author', Author)
 Vue.component('PageHeader', PageHeader)
+Vue.component('vuevisual', VueVisual)
 
 const routes = [
   {

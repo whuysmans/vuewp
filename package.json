@@ -15,7 +15,8 @@
     "vue": "^2.1.0",
     "vue-head": "^2.0.10",
     "vue-resource": "^1.0.3",
-    "vue-router": "^2.0.3"
+    "vue-router": "^2.0.3",
+    "vue-visual": "^0.1.5"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
