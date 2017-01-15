@@ -4279,15 +4279,89 @@ object {
 
 
 
+.fade.leave-active {
+	animation-duration: 0.1s;
+	-webkit-animation-duration: 0.1s;
+}
+
+.fade-enter-active, .fadeLeft-leave-active {
+	position: absolute;
+	top: 0;
+	
+}
+.fade-leave {
+/*	background-color: blue;
+*/}
+.fade-enter-active {
+	animation-duration: 0.3s;
+	-webkit-animation-duration: 0.3s;
+	animation-delay: 0.3s;
+	-webkit-animation-delay: 0.3s;
+}
 
 
 
+.sidebar {
+	display: none;
+}
+body.has-sidebar .sidebar {
+	display: block;
+}
 
 
 
+/*.custom-header {
+	overflow: hidden;
+}*/
+.custom-header-media,
+.custom-header-media:before {
+/*	transition: height 3s;
+	-webkit-transition: height 3s;
+*/}
+.has-header-image:not(.twentyseventeen-front-page):not(.home) .custom-header-media,
+.has-header-video:not(.twentyseventeen-front-page):not(.home) .custom-header-media {
+	height: 100%;
+}
+
+.custom-header {
+	margin-bottom: 72px;
+/*	transition: height 3s;
+	-webkit-transition: height 3s;
+*/}
+
+/*
+.has-header-image.twentyseventeen-front-page .custom-header,
+.has-header-video.twentyseventeen-front-page .custom-header,
+.has-header-image.home.blog .custom-header,
+.has-header-video.home.blog .custom-header {
+	height: 75%;
+}*/
 
 
+/* grid corrections regarding 2017-grid style (for consistency) */
+@media screen and (min-width: 48em) {
 
+	.very-changing-content {
+
+	}
+
+	.changing-content {
+		width: 100%;
+	}
+
+
+	.has-sidebar .very-changing-content {
+	    float: left;
+	    width: 58%;
+	    position: relative;
+	}
+
+	.has-sidebar:not(.error404) #primary:not(.changing-content) {
+		float: none;
+		width: 100%;
+	}
+
+}
 
 
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="changing-content">
     <header class="page-header">
       <h1 class="page-title">Archive: {{ this.$route.params.custom }}</h1>
     </header>
@@ -21,11 +21,11 @@ import queries from '../queries'
 	export default {
 		created: function() {
       let body = document.querySelector('body')
-      if( body.classList.length === 0 ) {
+      // if( body.classList.length === 0 ) {
         body.className = '';
         body.classList.add( 'archive', 'post-type-archive', 'has-header-image', 
           'has-sidebar', 'colors-light', 'customize-support' )
-      }
+      // }
       this.getCustomPost( { params: 
         {
           page: 1

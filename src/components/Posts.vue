@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="changing-content">
   <header class="page-header">
     <h1 class="page-title">All Posts</h1>
   </header>
-  <div id="main" class="content-area">
+  <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
       <Post v-for="post in posts" :post="post"></Post>
       <Pagination :totalPages="allPages"></Pagination>

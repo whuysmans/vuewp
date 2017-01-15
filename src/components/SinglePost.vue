@@ -1,5 +1,5 @@
 <template>
-  <div id="primary" class="content-area">
+  <div id="primary" class="content-area changing-content">
     <main id="main" class="site-main" role="main">
 	  <article :id="post.ID" class="post type-post format-standard">
 	    <header class="entry-header">

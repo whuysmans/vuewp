@@ -56,7 +56,7 @@ import Author from './components/Author'
 import PageHeader from './components/PageHeader'
 import VueVisual from 'vue-visual'
 require('./assets/css/style.css')
-require('vue-visual/index.css')
+require('vue2-animate/dist/vue2-animate.min.css')
 
 Vue.component('Post', Post)
 Vue.component('Posts', Posts)
@@ -153,7 +153,7 @@ const coords = () => {
 const router = new VueRouter({
   mode: 'history',
   scrollBehavior (to, from, savePosition) {
-    return { x: coords().x, y: coords().y }
+    return { x: coords().x, y: coords().y - 200}
   },
   routes
 })

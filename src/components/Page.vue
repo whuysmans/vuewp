@@ -1,4 +1,5 @@
 <template>
+  <div class="changing-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
       <article class="page type-page status-publish hentry">
@@ -10,6 +11,7 @@
       </article>
     </main>
     <Footer :post="post"></Footer>
+  </div>
   </div>
 </template>
 

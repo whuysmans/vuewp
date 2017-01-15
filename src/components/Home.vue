@@ -5,7 +5,11 @@
     <div class="site-content-contain">
       <div id="content" class="site-content">
         <div class="wrap">
-    	    <router-view></router-view>
+    	    <div class="very-changing-content">
+            <transition name="fade">
+              <router-view :key="$route.fullPath"></router-view>
+            </transition>
+          </div>
     	    <Aside></Aside>
         </div>
       </div>
@@ -15,15 +19,7 @@
   </div>
 </template>
 
-<style>
-  .fade-transition {
-  transition: opacity 0.5s ease;
-}
 
-.fade-enter, .fade-leave {
-  opacity: 0;
-}
-</style>
 
 
 

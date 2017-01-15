@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="changing-content">
     <header class="page-header">
       <h1 class="page-title">Tag: {{ this.$route.params.slug }}</h1>
     </header>
@@ -22,11 +22,10 @@ export default {
 
   created: function() {
     let body = document.querySelector('body')
-    if( body.classList.length === 0 ) {
+    // if( body.classList.length === 0 ) {
       body.className = '';
-      body.classList.add( 'archive', 'tag', 'group-blog', 'has-header-image', 
-        'has-sidebar', 'colors-light', 'customize-support' )
-    }
+      body.classList.add( 'archive', 'tag', 'group-blog', 'has-header-image', 'colors-light', 'customize-support', 'has-sidebar' )
+    // }
     this.fetchTagPosts( { params: { page: 1 } } )
     this.$on( 'pagination', this.fetchTagPosts )
   },

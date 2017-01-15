@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="changing-content">
     <header class="page-header">
     	<h1 class="page-title">Author: <span class="vcard">{{ this.$route.params.slug }}</span></h1>
     </header>
@@ -20,11 +20,10 @@
 
 		created: function() {
 		  let body = document.querySelector('body')
-		  if( body.classList.length === 0 ) {
+		  // if( body.classList.length === 0 ) {
 	        body.className = '';
-	        body.classList.add( 'archive', 'author', 'group-blog', 'hfeed', 'has-header-image',
-	         'has-sidebar', 'colors-light', 'customize-support' )
-	      }
+	        body.classList.add( 'archive', 'author', 'group-blog', 'hfeed', 'has-header-image', 'colors-light', 'customize-support', 'has-sidebar' )
+	      // }
 	      this.fetchPosts( { params: {
 	        page: 1
 	      } } )
