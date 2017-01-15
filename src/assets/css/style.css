@@ -4345,8 +4345,9 @@ body.has-sidebar .sidebar {
 
 	}
 
-	.changing-content {
-		width: 100%;
+	.changing-content,
+	.changing-content #primary {
+		width: 100% !important;
 	}
 
 
@@ -4356,11 +4357,11 @@ body.has-sidebar .sidebar {
 	    position: relative;
 	}
 
-	.has-sidebar:not(.error404) #primary:not(.changing-content) {
+/*	.has-sidebar:not(.error404) #primary:not(.changing-content) {
 		float: none;
 		width: 100%;
 	}
-
+*/
 }
 
 

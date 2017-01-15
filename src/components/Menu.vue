@@ -1,5 +1,14 @@
 <template>
 	<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="Primary Menu">
+		<button class="menu-toggle" aria-controls="top-menu" aria-expanded="false">
+			<svg class="icon icon-bars" aria-hidden="true" role="img">
+				<use href="#icon-bars" xlink:href="#icon-bars"></use>
+			</svg>
+			<svg class="icon icon-close" aria-hidden="true" role="img">
+				<use href="#icon-close" xlink:href="#icon-close"></use>
+			</svg>
+			Menu
+		</button>
 		<div id="menu" class="menu-empty-menu-container">
 			<ul id="menu-empty-menu" class="primary-menu">
 				<router-link tag="li" :to="{ path: '/' + fixRestUrl( item.url ) }" v-for="item in items" v-if="isTop(item)" 
