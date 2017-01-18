@@ -55,8 +55,8 @@ import SvgIcons from './components/SvgIcons'
 import Author from './components/Author'
 import PageHeader from './components/PageHeader'
 import VueVisual from 'vue-visual'
-require('./assets/css/style.css')
 require('vue2-animate/dist/vue2-animate.min.css')
+require('./assets/css/style.css')
 
 Vue.component('Post', Post)
 Vue.component('Posts', Posts)
@@ -140,22 +140,52 @@ const routes = [
   }
 ]
 
-const coords = () => {
-  let rect = document.querySelector('#menu').getBoundingClientRect()
-  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-  return {
-    x: rect.left + scrollLeft,
-    y: rect.top + scrollTop
-  }
+// const coords = () => {
+//   let rect = document.querySelector('#site-header-menu').getBoundingClientRect()
+//   const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
+//   const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+//   return {
+//     x: rect.left + scrollLeft,
+//     y: rect.top + scrollTop
+//   }
+// }
+
+const scrollTo = (element, to, duration) => {
+  if (duration <= 0)
+    return
+
+  let difference = to - element.scrollTop
+  let perTick = difference / duration * 10
+  setTimeout(function () {
+    element.scrollTop = element.scrollTop + perTick
+    if (element.scrollTop == to)
+      return
+    scrollTo(element, to, duration - 10)
+  }, 10)
 }
 
 const router = new VueRouter({
   mode: 'history',
-  scrollBehavior (to, from, savePosition) {
-    return { x: coords().x, y: coords().y - 200}
-  },
+  // scrollBehavior (to, from, savePosition) {
+  //   return { x: coords().x, y: coords().y - 200 }
+  // },
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  // smooth scroll to menu (but only on change, not the initial load)
+  if (from.name !== null) {
+    scrollTo(document.body, document.querySelector('#site-header-menu').scrollTop, 200)
+  }
+
+  // hide current content
+  let pageEl = document.getElementById('page')
+  pageEl.classList.add('page-fading-out')
+
+  next()
+
+  // show new content
+  pageEl.classList.remove('page-fading-out')
 })
 
 export const bus = new Vue()

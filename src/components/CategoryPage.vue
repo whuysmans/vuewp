@@ -8,7 +8,7 @@
         <div class="posts">
           <Post v-for="post in posts" :post="post"></Post>
         </div>
-        <Pagination :totalPages="allPages"></Pagination>
+        <Pagination :class="{ 'hidden': hidePagination }" :totalPages="allPages" ></Pagination>
       </main>
     </div>
   </div>
@@ -61,6 +61,12 @@ export default {
       )
     }
 
+  },
+
+  computed: {
+    hidePagination: function() {
+      return this.posts.length < 5
+    }
   }
 
 }

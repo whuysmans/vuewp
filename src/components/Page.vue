@@ -24,7 +24,7 @@
     created: function() {
       let body = document.querySelector('body')
       body.className = '';
-      body.classList.add( 'page-template-default', 'page', 'group-blog', 'has-header-image',
+      body.classList.add( 'page-template-default', 'group-blog', 'has-header-image',
        'colors-light', 'customize-support', 'has-sidebar' )
       this.getPage( this.$route.params.slug )
     },

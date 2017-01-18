@@ -34,7 +34,7 @@
 					this.$store.commit( 'setCurrentPost', result.wp_query.posts[0] )
 					let body = document.querySelector('body')
 					body.className = '';
-					body.classList.add( 'post-template-default', 'single', 'single-post', 'single-format-standard', 'group-blog', 'has-header-image', 'has-sidebar' )
+					body.classList.add( 'post-template-default', 'single', 'single-format-standard', 'group-blog', 'has-header-image', 'has-sidebar' )
 				} )
 			}
 		},

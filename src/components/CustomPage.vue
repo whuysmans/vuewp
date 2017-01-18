@@ -8,7 +8,7 @@
         <div class="posts">
           <Post v-for="post in posts" :post="post" msg="event"></Post>
         </div>
-        <Pagination :totalPages="allPages"></Pagination>
+        <Pagination :class="{ 'hidden': hidePagination }" :totalPages="allPages" ></Pagination>
       </main>
     </div>
   </div>
@@ -61,6 +61,12 @@ import queries from '../queries'
           this.$set( this, 'posts', result.wp_query.posts )
         } )
       }
-		}
+		},
+
+    computed: {
+      hidePagination: function() {
+        return this.posts.length < 5
+      }
+    }
 	}
 </script>

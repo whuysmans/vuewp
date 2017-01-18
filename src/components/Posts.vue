@@ -6,7 +6,7 @@
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
       <Post v-for="post in posts" :post="post"></Post>
-      <Pagination :totalPages="allPages"></Pagination>
+      <Pagination :class="{ 'hidden': hidePagination }" :totalPages="allPages" ></Pagination>
     </main>
   </div>
   </div>
@@ -30,7 +30,7 @@ import queries from '../queries'
     
 		data() {
 			return {
-				posts: '',
+				posts: [],
         allPages: 0
 			}
 		},
@@ -48,7 +48,14 @@ import queries from '../queries'
           this.$set( this, 'posts', result.wp_query.posts )
         } )
       }
-		}
+		},
+
+    computed: {
+      hidePagination: function() {
+        return this.posts.length < 5
+      }
+    }
+
 	}
 </script>
 
