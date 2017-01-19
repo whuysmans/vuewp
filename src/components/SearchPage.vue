@@ -21,7 +21,7 @@ export default {
 		} else {
 			let body = document.querySelector('body')
 			body.className = ''
-			body.classList.add( 'search', 'search-results', 'group-blog', 'has-header-image',
+			body.classList.add( 'home', 'blog', 'search', 'search-results', 'group-blog', 'has-header-image',
 			 'has-sidebar', 'colors-light', 'customize-support' )
 			this.doSearch()
 		}

@@ -24,7 +24,7 @@ export default {
     let body = document.querySelector('body')
     // if( body.classList.length === 0 ) {
       body.className = '';
-      body.classList.add( 'archive', 'category', 'group-blog', 'has-header-image', 'colors-light', 'customize-support', 'has-sidebar' )
+      body.classList.add( 'home', 'blog', 'archive', 'category', 'group-blog', 'has-header-image', 'colors-light', 'customize-support', 'has-sidebar' )
     // }
     this.fetchCategoryPosts( { params: { page: 1 } } )
     this.$on( 'pagination', this.fetchCategoryPosts )

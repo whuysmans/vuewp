@@ -23,7 +23,7 @@ import queries from '../queries'
       let body = document.querySelector('body')
       // if( body.classList.length === 0 ) {
         body.className = '';
-        body.classList.add( 'archive', 'post-type-archive', 'has-header-image', 
+        body.classList.add( 'home', 'blog', 'archive', 'post-type-archive', 'has-header-image', 
           'has-sidebar', 'colors-light', 'customize-support' )
       // }
       this.getCustomPost( { params: 

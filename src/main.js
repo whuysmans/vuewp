@@ -174,18 +174,26 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   // smooth scroll to menu (but only on change, not the initial load)
+  // scroll to top when navigating to home
   if (from.name !== null) {
-    scrollTo(document.body, document.querySelector('#site-header-menu').scrollTop, 200)
+    if (to.path === '/') {
+      scrollTo(document.body, 0, 200)
+    } else {
+      let scrollToPos = document.querySelector('#masthead').offsetHeight - document.querySelector('#site-header-menu').offsetHeight - document.querySelector('.site-branding').offsetHeight - 70 - 70
+      scrollTo(document.body, scrollToPos, 200)
+    }
   }
 
   // hide current content
   let pageEl = document.getElementById('page')
   pageEl.classList.add('page-fading-out')
 
+  // setTimeout(function () {
   next()
 
   // show new content
   pageEl.classList.remove('page-fading-out')
+  // }, 100)
 })
 
 export const bus = new Vue()
