@@ -6,8 +6,8 @@ Wordpress Twentyseventeen theme with Vue (VueJS) and GraphQL. Still in progress.
 + cd vuewp
 + npm install
 
-Of course the correct backend_url has to be set in constants.js.
-A graphql js client is included (Lokka). I had to set credentials to false in Lokka to fix cors-errors (see documentation in graphql-vuewp repo).
+You can set the backend_url in constants.js.
+A graphql js client is included (Lokka). 
 
 ### Dependencies
 + wordpress backend of course
@@ -16,7 +16,6 @@ A graphql js client is included (Lokka). I had to set credentials to false in Lo
 
 ### Todo
 + fix cors in a more sustainable way
-+ add animations
 
 ### SEO
-+ after a lot of trial and error, I decided to redirect the bots through mod_rewrite to the base WP install: a poor man's SSR; a node server on the backend was outside the scope of this demo, since my intent was to provide all backend functionality in a single WP plugin. It is probably bad, but it's working. I included a htaccess file for demonstration purposes.
++ after a lot of trial and error, I decided to redirect the seo bots through mod_rewrite to the base WP install: a poor man's SSR; a node server on the backend was outside the scope of this demo, since my intent was to provide all backend functionality in a single WP plugin. It is probably bad, but it's working. I included a htaccess file for demonstration purposes.
