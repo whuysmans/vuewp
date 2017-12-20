@@ -18,4 +18,4 @@ A graphql js client is included (Lokka).
 + fix cors in a more sustainable way
 
 ### SEO
-+ after a lot of trial and error, I decided to redirect the seo bots through mod_rewrite to the base WP install: a poor man's SSR; a node server on the backend was outside the scope of this demo, since my intent was to provide all backend functionality in a single WP plugin. It is probably bad, but it's working. I included a htaccess file for demonstration purposes.
++ after a lot of trial and error, I decided to redirect the seo bots through mod_rewrite to the base WP install: SSR was not really an option; a node server on the backend was outside the scope of this demo, since my intent was to provide all backend functionality in a single WP plugin. It is probably bad, but it's working. I included a htaccess file for demonstration purposes.
